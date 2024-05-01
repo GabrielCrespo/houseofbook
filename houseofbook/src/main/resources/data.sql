@@ -1,0 +1,2 @@
+INSERT INTO tb_role (id, name, created_at) VALUES (1, 'ADMIN', NOW()) ON CONFLICT ON CONSTRAINT tb_role_name_key DO NOTHING;
+INSERT INTO tb_role (id, name, created_at) VALUES (2, 'CLIENT', NOW()) ON CONFLICT ON CONSTRAINT tb_role_name_key DO NOTHING;

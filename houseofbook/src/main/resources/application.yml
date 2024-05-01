@@ -1,0 +1,14 @@
+spring:
+  application:
+    name: houseofbook
+  datasource:
+    url: jdbc:postgresql://localhost:5432/houseofbookdb
+    username: postgres
+    password: postgres
+  jpa:
+    showSql: true
+    hibernate:
+      ddlAuto: none
+  sql:
+    init:
+      mode: always
