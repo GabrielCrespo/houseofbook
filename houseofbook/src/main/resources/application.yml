@@ -12,3 +12,15 @@ spring:
   sql:
     init:
       mode: always
+
+security:
+  jwt:
+    key: dba7772a732919ae32b1dddb8e2ef7a5cd82544128f1b0b5548d48314729e854
+    expirationTime: 3600000
+
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG
+
