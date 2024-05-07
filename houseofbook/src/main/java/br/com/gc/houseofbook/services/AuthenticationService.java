@@ -6,6 +6,7 @@ import br.com.gc.houseofbook.dto.RegisterRequest;
 import br.com.gc.houseofbook.dto.RegisterResponse;
 import br.com.gc.houseofbook.entities.Role;
 import br.com.gc.houseofbook.entities.User;
+import br.com.gc.houseofbook.exceptions.ResourceAlreadyExistsException;
 import br.com.gc.houseofbook.repositories.RoleRepository;
 import br.com.gc.houseofbook.repositories.UserRepository;
 import jakarta.persistence.EntityNotFoundException;
@@ -47,6 +48,12 @@ public class AuthenticationService {
     }
 
     public RegisterResponse register(RegisterRequest request) {
+
+        var userExistsByEmail = userRepository.findByEmail(request.email()).isPresent();
+
+        if (userExistsByEmail) {
+            throw new ResourceAlreadyExistsException("User already registered with the email provided");
+        }
 
         var roleClient = Role.Values.CLIENT.name();
         var role = roleRepository.findByName(roleClient)

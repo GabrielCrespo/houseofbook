@@ -1,6 +1,7 @@
 package br.com.gc.houseofbook.entities;
 
 import br.com.gc.houseofbook.dto.LoginRequest;
+import br.com.gc.houseofbook.dto.RegisterRequest;
 import jakarta.persistence.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -153,6 +154,5 @@ public class User implements UserDetails {
     public void setUpdatedAt(LocalDateTime updatedAt) {
         this.updatedAt = updatedAt;
     }
-
 
 }
